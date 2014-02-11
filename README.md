@@ -15,9 +15,10 @@ Steps
   - `ruby dk.rb install`
 - Install a base box
   - `vagrant box add precise64 http://files.vagrantup.com/precise64.box`
+- Clone this repository
+  - `git clone https://github.com/neilhoff/rails-dev-box.git`
 - Install Librarian
   - `gem install librarian-chef`
-- Clone this repository
 - Make sure all the cookbooks are good to go
   - `librarian-chef install`
 - Setup Vagrant
