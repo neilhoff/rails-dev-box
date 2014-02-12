@@ -20,6 +20,7 @@ Steps
 - Install Librarian
   - `gem install librarian-chef`
 - Make sure all the cookbooks are good to go
+  - `cd chef`
   - `librarian-chef install`
 - Setup Vagrant
   - `vagrant init precise64`
