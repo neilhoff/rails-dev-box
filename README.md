@@ -22,8 +22,6 @@ Steps
 - Make sure all the cookbooks are good to go
   - `cd chef`
   - `librarian-chef install`
-- Setup Vagrant
-  - `vagrant init precise64`
 - Start the vagrant box
   - `vagrant up`
   - This will take a while
@@ -33,8 +31,12 @@ Steps
 - Editing files can be done in Windows because the root of the project is binded to the /vagrant/ folder on the box
 - Shutdown the box
   - `vagrant halt`
+  
+Troubleshooting
+==========
 
-
-  
-  
-  
+- If you get an error while logging into your new VM with vagrant ssh along the lines of "syntax error on line 7" of /etc/profile.d/rbenv.sh 
+ - The solution is this:
+  - `sudo apt-get install dos2unix`
+  - `sudo dos2unix /etc/profile.d/rbenv.sh`
+  - `exit`
