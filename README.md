@@ -27,10 +27,17 @@ Steps
   - This will take a while
 - SSH into the box
   - `vagrant ssh`
-- Install gems and run rails migrations on the server
 - Editing files can be done in Windows because the root of the project is binded to the /vagrant/ folder on the box
+ - `cd /vagrant`
+ - From here you can setup a new project or clone an existing one down
 - Shutdown the box
   - `vagrant halt`
+
+RubyMine Setup
+==========
+- Setup Remote SDK
+- Setup Remote Deployment
+- See [Rubymine and Vagrant](http://youtu.be/5KQUhMM_99Y)
   
 Troubleshooting
 ==========
