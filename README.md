@@ -41,4 +41,4 @@ Troubleshooting
   - `sudo dos2unix /etc/profile.d/rbenv.sh`
   - `exit`
 - If you get this error: PG::InvalidParameterValue: ERROR:  encoding UTF8 does not match locale en_US DETAIL:  The chosen LC_CTYPE setting requires encoding LATIN1.
-  - See this (StackOverflow thread)[http://stackoverflow.com/questions/13115692/encoding-utf8-does-not-match-locale-en-us-the-chosen-lc-ctype-setting-requires]
+  - See this [StackOverflow thread](http://stackoverflow.com/questions/13115692/encoding-utf8-does-not-match-locale-en-us-the-chosen-lc-ctype-setting-requires)
