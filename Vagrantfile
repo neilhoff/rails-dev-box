@@ -12,6 +12,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   config.vm.network :forwarded_port, guest: 3000, host: 3000  # forward the default rails port
   config.vm.network :forwarded_port, guest: 3306, host: 3306  # forward the MySQL port
   config.vm.network :forwarded_port, guest: 5432, host: 5432  # forward the PostgreSQL port
+  config.vm.network :forwarded_port, guest: 4567, host: 4567  # forward the Sinatra port
 
   config.vm.provision :shell, :inline => "gem install chef --version 11.6.0"
 
