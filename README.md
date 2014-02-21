@@ -39,6 +39,15 @@ RubyMine Setup
 - Setup Remote Deployment
 - See [Rubymine and Vagrant](http://youtu.be/5KQUhMM_99Y)
   
+PostgreSQL Notes
+==========
+- Create a new user
+  - `sudo -u postgres createuser username -s`
+- Set the password
+  - `sudo -u postgres psql`
+  - `postgres=# \password username` 
+
+
 Troubleshooting
 ==========
 
