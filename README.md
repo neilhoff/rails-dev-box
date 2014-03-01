@@ -36,8 +36,11 @@ Steps
 RubyMine Setup
 ==========
 - Setup Remote SDK
+  - Ruby Interpreter path:
+    - `rbenv which ruby` should display something like: `/usr/local/rbenv/versions/2.1.0/bin/ruby`
 - Setup Remote Deployment
 - See [Rubymine and Vagrant](http://youtu.be/5KQUhMM_99Y)
+
   
 PostgreSQL Notes
 ==========
