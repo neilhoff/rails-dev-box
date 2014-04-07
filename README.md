@@ -48,8 +48,8 @@ PostgreSQL Notes
   - `sudo -u postgres createuser username -s`
 - Set the password
   - `sudo -u postgres psql`
-  - `postgres=# \password username` 
-
+  - `\password username` 
+- [PostgreSQL Command Cheat Sheet](http://blog.jasonmeridth.com/posts/postgresql-command-line-cheat-sheet/)
 
 Troubleshooting
 ==========
