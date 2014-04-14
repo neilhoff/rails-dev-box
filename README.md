@@ -33,6 +33,16 @@ Steps
 - Shutdown the box
   - `vagrant halt`
 
+Vagrant Options
+=========
+- Set the memory or CPUs
+````
+config.vm.provider "virtualbox" do |v|
+  v.memory = 1024
+  v.cpus = 2
+end
+````
+
 RubyMine Setup
 ==========
 - Setup Remote SDK
