@@ -27,6 +27,9 @@ Steps
   - This will take a while
 - SSH into the box
   - `vagrant ssh`
+- Follow [Go Rails: Setup Ruby on Rails on Ubuntu](http://gorails.com/setup/ubuntu/13.10)
+  - Install Rbenv
+  - Setup Git
 - Editing files can be done in Windows because the root of the project is binded to the /vagrant/ folder on the box
  - `cd /vagrant`
  - From here you can setup a new project or clone an existing one down
