@@ -57,6 +57,8 @@ RubyMine Setup
   
 PostgreSQL Notes
 ==========
+- If running `rake db:setup` fails
+  - In config/database.yml you need to add `host: localhost`
 - Create a new user
   - `sudo -u postgres createuser username -s`
 - Set the password
