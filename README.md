@@ -22,6 +22,9 @@ Steps
 - Make sure all the cookbooks are good to go
   - `cd chef`
   - `librarian-chef install`
+- If you are on a laptop that will be used in areas with a network `%HOMEDRIVE%`
+  - Add the `VAGRANT_HOME` environment variable to Windows
+  - See [Is there a way to change the .vagrant.d location?](http://stackoverflow.com/questions/13368869/is-there-a-way-to-change-the-vagrand-d-location-the-location-for-vagrant-boxes)
 - Start the vagrant box
   - `vagrant up`
   - This will take a while
