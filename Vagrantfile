@@ -6,9 +6,13 @@ VAGRANTFILE_API_VERSION = "2"
 
 Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   config.vm.box = "precise64"
-
+  
   config.vm.box_url = "http://files.vagrantup.com/precise64.box"
-
+  
+  config.vm.provider "virtualbox" do |v|
+    v.memory = 1024
+  end
+  
   config.vm.network :forwarded_port, guest: 3000, host: 3000  # forward the default rails port
   config.vm.network :forwarded_port, guest: 3306, host: 3306  # forward the MySQL port
   config.vm.network :forwarded_port, guest: 5432, host: 5432  # forward the PostgreSQL port
