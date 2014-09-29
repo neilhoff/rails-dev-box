@@ -26,21 +26,16 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 
     chef.add_role "rails-dev"
     chef.json = {
-      "mysql" => {
-        "server_root_password"   => "",
-        "server_debian_password" => "",
-        "server_repl_password"   => ""
-      },
       "postgresql" => {
         "password" => {
           "postgres" => ""
         }
       },
       "rbenv" => {
-        "global" => "2.0.0-p247",
-        "rubies" => ["2.0.0-p247"],
+        "global" => "2.1.2",
+        "rubies" => ["2.1.2"],
         "gems" => {
-          "2.0.0-p247" => [
+          "2.1.2" => [
             { "name" => "bundler" }
           ]
         }
