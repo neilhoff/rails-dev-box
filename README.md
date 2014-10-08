@@ -69,6 +69,10 @@ PostgreSQL Notes
   - `\password username` 
 - [PostgreSQL Command Cheat Sheet](http://blog.jasonmeridth.com/posts/postgresql-command-line-cheat-sheet/)
 
+Install MongoDB
+==========
+- http://docs.mongodb.org/manual/tutorial/install-mongodb-on-ubuntu/
+
 Troubleshooting
 ==========
 
