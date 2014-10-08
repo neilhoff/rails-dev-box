@@ -13,10 +13,11 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     v.customize ["modifyvm", :id, "--memory", "1024"]
   end
   
-  config.vm.network :forwarded_port, guest: 3000, host: 3000  # forward the default rails port
-  config.vm.network :forwarded_port, guest: 3306, host: 3306  # forward the MySQL port
-  config.vm.network :forwarded_port, guest: 5432, host: 5432  # forward the PostgreSQL port
-  config.vm.network :forwarded_port, guest: 4567, host: 4567  # forward the Sinatra port
+  config.vm.network :forwarded_port, guest: 3000, host: 3000   # default rails port
+  config.vm.network :forwarded_port, guest: 3306, host: 3306   # MySQL port
+  config.vm.network :forwarded_port, guest: 5432, host: 5432   # PostgreSQL port
+  config.vm.network :forwarded_port, guest: 4567, host: 4567   # Sinatra port
+  config.vm.network :forwarded_port, guest: 28017, host: 28017 # MongoDB port
 
   config.vm.provision :shell, :inline => "gem install chef --version 11.6.0"
 
