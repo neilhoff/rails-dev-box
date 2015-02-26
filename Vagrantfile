@@ -18,7 +18,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   config.vm.network :forwarded_port, guest: 5432, host: 5432   # PostgreSQL port
   config.vm.network :forwarded_port, guest: 4567, host: 4567   # Sinatra port
   config.vm.network :forwarded_port, guest: 28017, host: 28017 # MongoDB port
-  config.vm.network :forwarded_port, guest: 28017, host: 28017 # Jekyll port
+  config.vm.network :forwarded_port, guest: 4000, host: 4000 # Jekyll port
 
   config.vm.provision :shell, :inline => "gem install chef --version 11.6.0"
 
