@@ -1,4 +1,8 @@
-chef/cookbooks
-chef/tmp
-chef/cheffile.log
+cookbooks
+tmp
+*.log
 .vagrant
+vagrant_files/*
+Cheffile.lock
+.idea
+

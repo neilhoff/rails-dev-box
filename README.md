@@ -1,10 +1,15 @@
 This box was created from the blog [Developing Ruby on Rails on Windows](http://manuel.manuelles.nl/blog/2013/07/23/developing-ruby-on-rails-on-windows/)
+Updated using [GoRails - Setting up Vagrant for Rails](https://gorails.com/guides/using-vagrant-for-rails-development) as a guide
 
 Steps
 ==========
 
 - Install [VirtualBox](https://www.virtualbox.org/wiki/Downloads)
 - Install [Vagrant](http://downloads.vagrantup.com/)
+- Install 2 plugins for Vagrant
+ - `vagrant plugin install vagrant-vbguest` - Automatically installs the VirtualBox guest additions
+ - `vagrant plugin install vagrant-librarian-chef-nochef` - Automatically run Chef when box is started
+- NOTE: You might not have to install Ruby on Windows anymore. I haven't tested it yet.
 - Install [Ruby](http://rubyinstaller.org/downloads/)
 - Install the [Ruby DevKit](http://rubyinstaller.org/downloads/)
   - Extract to: <ruby_path>\devkit
@@ -13,15 +18,8 @@ Steps
   - `ruby dk.rb init`
   - `ruby dk.rb review`
   - `ruby dk.rb install`
-- Install a base box
-  - `vagrant box add precise64 http://files.vagrantup.com/precise64.box`
 - Clone this repository
   - `git clone https://github.com/neilhoff/rails-dev-box.git`
-- Install Librarian
-  - `gem install librarian-chef`
-- Make sure all the cookbooks are good to go
-  - `cd chef`
-  - `librarian-chef install`
 - If you are on a Domain that will be used in areas with a network `%HOMEDRIVE%`
   - Add the `VAGRANT_HOME` environment variable to Windows and set it somewhere local
   - See [Is there a way to change the .vagrant.d location?](http://stackoverflow.com/questions/13368869/is-there-a-way-to-change-the-vagrand-d-location-the-location-for-vagrant-boxes)
@@ -30,9 +28,12 @@ Steps
   - This will take a while
 - SSH into the box
   - `vagrant ssh`
-- Follow [Go Rails: Setup Ruby on Rails on Ubuntu](http://gorails.com/setup/ubuntu/13.10)
-  - Install Rbenv
-  - Setup Git
+- Install a ruby version with Rbenv
+ - `rbenv install 2.3.1`
+ - `rbenv rehash`
+- Install bundler
+ - `gem install bundler`
+ - This will be used to install all the dependencies in a Rails or Sinatra projects
 - Editing files can be done in Windows because the root of the project is binded to the /vagrant/ folder on the box
  - `cd /vagrant`
  - From here you can setup a new project or clone an existing one down

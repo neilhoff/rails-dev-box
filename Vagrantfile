@@ -5,43 +5,55 @@
 VAGRANTFILE_API_VERSION = "2"
 
 Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
-  config.vm.box = "precise64"
+  # Ubuntu 16.04
+  config.vm.box = "ubuntu/xenial64"
   
-  config.vm.box_url = "http://files.vagrantup.com/precise64.box"
-  
-  config.vm.provider "virtualbox" do |v|
-    v.customize ["modifyvm", :id, "--memory", "2048"]
+  config.vm.provider "virtualbox" do |v|     
+	 # Customize the amount of memory on the VM:
+     v.memory = "2048"
   end
   
+  config.vm.synced_folder "vagrant_files", "/vagrant_files"
+  
   config.vm.network :forwarded_port, guest: 3000, host: 3000    # default rails port
-  config.vm.network :forwarded_port, guest: 3306, host: 3306    # MySQL port
   config.vm.network :forwarded_port, guest: 5432, host: 5432    # PostgreSQL port
   config.vm.network :forwarded_port, guest: 4567, host: 4567    # Sinatra port
   config.vm.network :forwarded_port, guest: 28017, host: 28017  # MongoDB port
   config.vm.network :forwarded_port, guest: 4000, host: 4000    # Jekyll port
-  config.vm.network :forwarded_port, guest: 3030, host: 3030 	  # Dashing port
+  config.vm.network :forwarded_port, guest: 3030, host: 3030 	# Dashing port
 
-  config.vm.provision :shell, :inline => "gem install chef --version 11.6.0"
 
+   # Use Chef Solo to provision our virtual machine
   config.vm.provision :chef_solo do |chef|
-    chef.cookbooks_path = ["chef/cookbooks", "chef/site-cookbooks"]
-    chef.roles_path     = [[:host, "chef/roles"]]
+    chef.cookbooks_path = ["cookbooks", "site-cookbooks"]
 
-    chef.add_role "rails-dev"
+    chef.add_recipe "apt"
+    chef.add_recipe "nodejs"
+    chef.add_recipe "ruby_build"
+    chef.add_recipe "rbenv::system"
+    chef.add_recipe "rbenv::vagrant"
+	chef.add_recipe "postgresql"
+	chef.add_recipe "postgresql::server"
+	
     chef.json = {
-      "postgresql" => {
-        "password" => {
-          "postgres" => ""
-        }
-      },
-      "rbenv" => {
-        "global" => "2.1.2",
-        "rubies" => ["2.1.2"],
-        "gems" => {
-          "2.1.2" => [
-            { "name" => "bundler" }
-          ]
-        }
+		"postgresql" => {
+			"version" => "9.3",
+			"enable_pgdg_apt" => "true",
+			"password" => {
+				"postgres" => "password"
+			}
+		},
+      rbenv: {
+        user_installs: [{
+          user: 'ubuntu',
+          rubies: ["2.2.1"],
+          global: "2.2.1",
+          gems: {
+            "2.2.1" => [
+              { name: "bundler" }
+            ]
+          }
+        }]
       }
     }
   end
