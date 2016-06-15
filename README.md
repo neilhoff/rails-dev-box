@@ -1,5 +1,5 @@
-This box was created from the blog [Developing Ruby on Rails on Windows](http://manuel.manuelles.nl/blog/2013/07/23/developing-ruby-on-rails-on-windows/)
-Updated using [GoRails - Setting up Vagrant for Rails](https://gorails.com/guides/using-vagrant-for-rails-development) as a guide
+- This box was created from the blog [Developing Ruby on Rails on Windows](http://manuel.manuelles.nl/blog/2013/07/23/developing-ruby-on-rails-on-windows/)
+- Updated using [GoRails - Setting up Vagrant for Rails](https://gorails.com/guides/using-vagrant-for-rails-development) as a guide
 
 Steps
 ==========
