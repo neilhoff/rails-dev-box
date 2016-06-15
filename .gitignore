@@ -2,7 +2,6 @@ cookbooks
 tmp
 *.log
 .vagrant
-vagrant_files/*
 Cheffile.lock
 .idea
 
