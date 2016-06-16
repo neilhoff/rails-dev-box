@@ -77,6 +77,8 @@ Install MongoDB
 Troubleshooting
 ==========
 
+- Run this command if you are running into an issue with installing 'therubyracer' gem
+  - `sudo apt-get install g++ build-essential`
 - If you get an error while logging into your new VM with vagrant ssh along the lines of "syntax error on line 7" of /etc/profile.d/rbenv.sh 
  - The solution is this:
   - `sudo apt-get install dos2unix`
