@@ -88,3 +88,14 @@ Troubleshooting
   - See this [StackOverflow thread](http://stackoverflow.com/questions/13115692/encoding-utf8-does-not-match-locale-en-us-the-chosen-lc-ctype-setting-requires)
 - If you get the psql error `FATAL: Peer authentication failed for user...`
   - See this [StackOverflow thread](http://stackoverflow.com/questions/17443379/psql-fatal-peer-authentication-failed-for-user-dev)
+  - Example of a good `/etc/postgresql/9.1/main/pg_hba.conf`
+````    
+    # Database administrative login by Unix domain socket
+    local   all             postgres                                peer
+    # TYPE  DATABASE        USER            ADDRESS                 METHOD
+    local   all             all                                     md5
+    # IPv4 local connections:
+    host    all             all             127.0.0.1/32            md5
+    # IPv6 local connections:
+    host    all             all             ::1/128                 md5
+````
