@@ -35,7 +35,6 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 	chef.add_recipe "postgresql"
 	chef.add_recipe "postgresql::server"
 	
-	#rbenv isn't installing the 
     chef.json = {
 		"postgresql" => {
 			"version" => "9.3",
