@@ -6,14 +6,14 @@ VAGRANTFILE_API_VERSION = "2"
 
 Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   # Ubuntu 16.04
-  config.vm.box = "ubuntu/xenial64"
+  config.vm.box = "ubuntu/trusty64"
   
   config.vm.provider "virtualbox" do |v|     
 	 # Customize the amount of memory on the VM:
      v.memory = "2048"
   end
   
-  config.vm.synced_folder "vagrant_files", "/vagrant_files"
+  config.vm.synced_folder "vagrant", "/vagrant"
   
   config.vm.network :forwarded_port, guest: 3000, host: 3000    # default rails port
   config.vm.network :forwarded_port, guest: 5432, host: 5432    # PostgreSQL port
@@ -25,16 +25,17 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 
    # Use Chef Solo to provision our virtual machine
   config.vm.provision :chef_solo do |chef|
-    chef.cookbooks_path = ["cookbooks", "site-cookbooks"]
+    chef.cookbooks_path = ["cookbooks"]
 
     chef.add_recipe "apt"
-    chef.add_recipe "nodejs"
-    chef.add_recipe "ruby_build"
+    chef.add_recipe "nodejs"    
     chef.add_recipe "rbenv::system"
     chef.add_recipe "rbenv::vagrant"
+	chef.add_recipe "ruby_build"
 	chef.add_recipe "postgresql"
 	chef.add_recipe "postgresql::server"
 	
+	#rbenv isn't installing the 
     chef.json = {
 		"postgresql" => {
 			"version" => "9.3",
@@ -43,18 +44,18 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 				"postgres" => "password"
 			}
 		},
-      rbenv: {
-        user_installs: [{
-          user: 'ubuntu',
-          rubies: ["2.2.1"],
-          global: "2.2.1",
-          gems: {
-            "2.2.1" => [
-              { name: "bundler" }
-            ]
-          }
-        }]
-      }
+        rbenv: {
+			rubies: ["2.1.2", "2.3.1"],
+			global: "2.1.2",
+			gems: {
+				"2.1.2": [
+					{ name: 'bundler' }
+				],
+				"2.3.1": [
+					{ name: 'bundler' }
+				]
+			}
+		} 
     }
   end
 end

@@ -9,4 +9,4 @@ cookbook 'postgresql'
 cookbook 'nodejs'
 cookbook 'build-essential'
 cookbook 'ruby_build'
-cookbook 'rbenv', git: 'git://github.com/fnichol/chef-rbenv.git', ref: "v0.8.1"
+cookbook 'rbenv', git: 'https://github.com/ianbrown78/chef-rbenv'
