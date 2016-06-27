@@ -29,9 +29,9 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 
     chef.add_recipe "apt"
     chef.add_recipe "nodejs"    
+	chef.add_recipe "ruby_build"
     chef.add_recipe "rbenv::system"
     chef.add_recipe "rbenv::vagrant"
-	chef.add_recipe "ruby_build"
 	chef.add_recipe "postgresql"
 	chef.add_recipe "postgresql::server"
 	
